@@ -1,0 +1,26 @@
+<html>
+
+<style>
+    li {
+        width: 400px;
+        border-bottom: 1px solid black;
+    }
+</style>
+
+    <head>
+        <title>Browse entries</title>
+    </head>
+<body>
+    <h1>Browse entries</h1>
+    {% if entries|length > 0 %}
+        <ul>
+        {% for entry in entries %}
+            <li style="line-height:30px;"><b>{{ entry.title }}</b> ({{ entry.date.strftime("%Y-%m-%d %H:%M:%S") }})<br>
+            {{ entry.content }}<p>
+        {% endfor %}
+        </ul>
+    {% else %}
+        This blog is empty.
+    {% endif %}
+</body>
+</html>
